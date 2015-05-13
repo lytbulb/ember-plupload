@@ -19,6 +19,7 @@ const settingsToConfig = function (settings = {}) {
   let chunkSize = settings.chunkSize || 0;
   let contentType = settings.contentType || 'multipart/form-data';
   let fileKey = settings.fileKey || 'file';
+  let multipart = settings.multipart || contentType === 'multipart/form-data';
 
   if (headers.Accept == null) {
     if (!Ember.Array.detect(accepts)) {
@@ -26,19 +27,20 @@ const settingsToConfig = function (settings = {}) {
     }
     headers.Accept = accepts.join(',');
   }
-  Ember.assert(
-    "Files can only be sent as 'multipart/form-data' or 'binary'.",
-    ['multipart/form-data', 'binary'].indexOf(contentType) !== -1);
+  // Ember.assert(
+  //   "Files can only be sent as 'multipart/form-data' or 'binary'.",
+  //   ['multipart/form-data', 'binary'].indexOf(contentType) !== -1);
 
   return {
     url: url,
     method: method,
     headers: headers,
-    multipart: contentType === 'multipart/form-data',
+    multipart: multipart,
     multipart_params: data,
     max_retries: maxRetries,
     chunk_size: chunkSize,
-    file_data_name: fileKey
+    file_data_name: fileKey,
+    content_type: contentType
   };
 };
 
@@ -67,6 +69,14 @@ export default Ember.Object.extend({
     @type String
    */
   name: reads('file.name'),
+
+  /**
+    The mimetype of the file as determined by m0xie
+
+    @property type
+    @type String
+   */
+  type: reads('file.type'),
 
   /**
     The size of the file in bytes

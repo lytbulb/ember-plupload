@@ -26,6 +26,7 @@ This configuration is for the uploader instance as a whole. Most of the configur
 |---------------------|------------------|
 | `url`               | the URL to send the upload request to
 | `method`         | whether to use post or put, default is post
+| `multipart`         | whether this is multipart form data or not. defaults to true
 | `headers`           | the headers to use when uploading the file. it defaults to using the `accept` attribute
 | `accepts`           | a string or array of accepted content types that the server can respond with. defaults to `['application/json', 'text/javascript']`
 | `contentType`       | how the file should be sent. defaults to `multipart/form-data`; `binary` is the other option

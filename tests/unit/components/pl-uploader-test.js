@@ -181,6 +181,7 @@ test('merges uploader settings with the settings provided in file.upload', funct
       silverlight_xap_url: '/assets/Moxie.xap',
       max_retries: 2,
       chunk_size: 128,
+      content_type: 'multipart/form-data',
       method: 'post',
       multipart: true,
       multipart_params: {
@@ -253,6 +254,7 @@ test('merges the url correctly if passed in as the first parameter to upload', f
       silverlight_xap_url: '/assets/Moxie.xap',
       max_retries: 2,
       chunk_size: 128,
+      content_type: 'multipart/form-data',
       multipart: true,
       multipart_params: {
         signature: 'test'
