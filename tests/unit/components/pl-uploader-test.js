@@ -181,6 +181,7 @@ test('merges uploader settings with the settings provided in file.upload', funct
       silverlight_xap_url: '/assets/Moxie.xap',
       max_retries: 2,
       chunk_size: 128,
+      method: 'post',
       multipart: true,
       multipart_params: {
         signature: 'test'
@@ -244,6 +245,7 @@ test('merges the url correctly if passed in as the first parameter to upload', f
     assert.deepEqual(uploader.settings, {
       runtimes: 'html5,html4,flash,silverlight',
       url: 'https://my-bucket.amazonaws.com/test',
+      method: 'post',
       browse_button: 'browse-button',
       drop_element: get(component, 'features.drag-and-drop') ? 'dropzone-for-' + elementId : null,
       container: elementId,

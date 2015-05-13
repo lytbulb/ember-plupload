@@ -11,6 +11,7 @@ const mOxieFileReader = mOxie.FileReader;
 
 const settingsToConfig = function (settings = {}) {
   let url = settings.url;
+  let method = settings.method || 'post';
   let accepts = settings.accepts || ['application/json', 'text/javascript'];
   let headers = settings.headers || {};
   let data = settings.data || {};
@@ -31,6 +32,7 @@ const settingsToConfig = function (settings = {}) {
 
   return {
     url: url,
+    method: method,
     headers: headers,
     multipart: contentType === 'multipart/form-data',
     multipart_params: data,
