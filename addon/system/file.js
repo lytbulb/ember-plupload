@@ -31,10 +31,6 @@ const settingsToConfig = function (settings = {}) {
     headers.Accept = accepts.join(',');
   }
 
-  if (headers['Content-Type'] == null && contentType) {
-    headers['Content-Type'] = contentType;
-  }
-
   return {
     url: url,
     method: method,
@@ -43,7 +39,8 @@ const settingsToConfig = function (settings = {}) {
     multipart_params: data,
     max_retries: maxRetries,
     chunk_size: chunkSize,
-    file_data_name: fileKey
+    file_data_name: fileKey,
+    content_type: contentType
   };
 };
 
