@@ -12,6 +12,6 @@
     "ember-qunit": "0.2.8",
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
-    "plupload": "~2.1.2"
+    "plupload": "git://github.com/lytbulb/plupload#s3-mods-minified"
   }
 }
