@@ -158,7 +158,12 @@ export default Ember.Object.extend({
     // When we upgrade plupload so it takes
     // settings as part of the upload process,
     // we'll remove this.
-    later(uploader, 'start', 400);
+    let delay = 100;
+    if (uploader.files.length > 2) {
+      delay = 600;
+    }
+
+    later(uploader, 'start', delay);
 
     return this._deferred.promise;
   },
